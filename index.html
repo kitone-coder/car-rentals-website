@@ -4,149 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DriveEasy — Premium Car Rentals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --black:    #0d0d0d;
-      --dark:     #141414;
-      --panel:    #1c1c1c;
-      --border:   #2e2e2e;
-      --red:      #e8272d; /* Fixed color variable syntax */
-      --red-dim:  #9e1b1f;
-      --silver:   #c8cdd4;
-      --muted:    #6b7280;
-      --white:    #f0f0f0;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: rgba(13,13,13,.96);
-      backdrop-filter: blur(12px);
-      position: sticky; top: 0; z-index: 200;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.7rem;
-      letter-spacing: .12em;
-      color: var(--white);
-      padding: .9rem 0;
-    }
-    .nav-logo span { color: var(--red); }
-    nav ul { list-style: none; display: flex; }
-    nav ul li a {
-      display: block;
-      padding: .9rem 1.1rem;
-      color: var(--silver);
-      text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .95rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      font-weight: 600;
-      transition: color .2s;
-    }
-    nav ul li a:hover { color: var(--red); }
-
-    /* ── PERFECT 480PX CENTERED VIDEO CONTAINERS ── */
-    .video-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 0 auto 2rem; 
-      max-width: 480px;    
-    }
-    .video-card .ratio {
-      position: relative;
-      padding-bottom: 56.25%; /* Clean 16:9 Aspect Ratio */
-      height: 0;
-    }
-    /* Updated to target both standard iframes and native videos flawlessly */
-    .video-card .ratio iframe,
-    .video-card .ratio video {
-      position: absolute; 
-      inset: 0;
-      width: 100%; 
-      height: 100%;
-      border: none;
-      object-fit: cover; /* Crops nicely without stretching */
-    }
-    .video-card p {
-      padding: .75rem 1.1rem;
-      font-size: .84rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      margin: 0;
-    }
-
-    /* ── TABLE ── */
-    .table-wrap {
-      overflow-x: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--panel);
-      font-size: .93rem;
-    }
-    thead {
-      background: #111;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .9rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--silver);
-    }
-    thead th { padding: 1rem 1.3rem; text-align: left; white-space: nowrap; }
-    thead th:first-child { color: var(--red); }
-    tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
-    tbody tr:last-child { border: none; }
-    tbody tr:hover { background: #222; }
-    tbody td { padding: .85rem 1.3rem; color: #bfc5cc; }
-    tbody td:first-child { color: var(--white); font-weight: 600; }
-
-    .badge {
-      display: inline-block;
-      padding: .18rem .7rem;
-      border-radius: 2px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .badge.avail  { background: rgba(34,197,94,.15);  color: #4ade80; }
-    .badge.few    { background: rgba(250,173,20,.15);  color: #fbbf24; }
-    .badge.out    { background: rgba(239,68,68,.15);   color: #f87171; }
-
-    .price { color: var(--red); font-weight: 700; font-size: 1rem; }
-
-    /* ── MAP CONTAINER ── */
-    .map-container {
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      margin-top: 1.5rem;
-    }
-    .map-container iframe {
-      width: 100%;
-      height: 400px;
-      border: 0;
-      display: block;
-    }
-  </style>
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-  <div class="nav-logo">Drive<span>Easy</span></div>
+  <div><strong>DriveEasy</strong></div>
   <ul>
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#fleet">Our Fleet</a></li>
@@ -156,23 +19,26 @@
   </ul>
 </nav>
 
+<!-- HERO -->
 <header>
-  <p class="hero-eyebrow">Nairobi's #1 Car Rental Service</p>
-  <h1>Rent.<span>Drive.</span><br>Explore.</h1>
+  <p>Nairobi's #1 Car Rental Service</p>
+  <h1>Rent. Drive. Explore.</h1>
   <p>Premium vehicles, transparent pricing, and hassle-free booking. Your perfect journey starts here.</p>
-  <div class="hero-cta">
-    <a href="#fleet" class="btn btn-red">Browse Fleet</a>
-    <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+  <div>
+    <a href="#fleet">Browse Fleet</a>
+    <a href="#how-it-works">How It Works</a>
   </div>
 </header>
 
 <main>
 
+  <!-- HOW IT WORKS + BENEFITS (LISTS) -->
   <section id="how-it-works">
     <h2>Lists</h2>
-    <div class="lists-grid">
-      <div class="list-card">
-        <h3>📋 How to Rent a Car — Step by Step</h3>
+    <div>
+
+      <div>
+        <h3>How to Rent a Car — Step by Step</h3>
         <ol>
           <li>Choose your vehicle from our online fleet</li>
           <li>Select your pickup date, time, and location</li>
@@ -182,120 +48,137 @@
         </ol>
       </div>
 
-      <div class="list-card">
-        <h3>✅ Why Choose DriveEasy</h3>
-        <ul class="dots">
+      <div>
+        <h3>Why Choose DriveEasy</h3>
+        <ul>
           <li>24/7 roadside assistance anywhere in Kenya</li>
           <li>Zero hidden fees — what you see is what you pay</li>
           <li>Free unlimited mileage on all bookings</li>
-          <li>Fully insured & sanitised vehicles every rental</li>
+          <li>Fully insured &amp; sanitised vehicles every rental</li>
           <li>Airport pickup and drop-off available</li>
         </ul>
       </div>
+
     </div>
   </section>
 
+  <!-- GALLERY (IMAGES) -->
   <section id="gallery">
     <h2>Gallery</h2>
-    <div class="images-grid">
-      <figure class="img-card">
-        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80" alt="Sleek sports car on an open road"/>
-        <figcaption>🏎️ Sport Edition — Built for drivers who love performance.</figcaption>
+    <div>
+
+      <figure>
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80" alt="Sleek sports car on an open road" width="400"/>
+        <figcaption>Sport Edition — Built for drivers who love performance.</figcaption>
       </figure>
 
-      <figure class="img-card">
-        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80" alt="Modern SUV parked outdoors"/>
-        <figcaption>🚙 Premium SUV — Space, comfort, and capability for any terrain.</figcaption>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80" alt="Modern SUV parked outdoors" width="400"/>
+        <figcaption>Premium SUV — Space, comfort, and capability for any terrain.</figcaption>
       </figure>
+
     </div>
   </section>
 
+  <!-- VIDEOS -->
   <section id="videos">
-    <h2>Watch & Learn</h2>
-    <div class="videos-grid">
+    <h2>Watch &amp; Learn</h2>
+    <div>
 
-     <iframe width="560" height="315"
-src="https://www.youtube.com/embed/iT6E92Kt38o"
-title="Driving Video"
-allowfullscreen>
-</iframe>
+      <div>
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/4SHBiLlsJoQ" title="How to rent a car — tips and advice" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <p>Top tips for renting a car — what to check before you drive away.</p>
+      </div>
+
+      <div>
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/8A-C3FJEeM8" title="Best road trips in Kenya" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <p>Best road trip routes in Kenya — inspiration for your next adventure.</p>
+      </div>
+
+    </div>
   </section>
 
+  <!-- PRICING TABLE -->
   <section id="pricing">
-    <h2>Fleet & Pricing</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Vehicle</th>
-            <th>Category</th>
-            <th>Seats</th>
-            <th>Transmission</th>
-            <th>Daily Rate</th>
-            <th>Availability</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Toyota Vitz</td>
-            <td>Economy</td>
-            <td>5</td>
-            <td>Automatic</td>
-            <td class="price">KES 3,500</td>
-            <td><span class="badge avail">Available</span></td>
-          </tr>
-          <tr>
-            <td>Mazda CX-5</td>
-            <td>SUV</td>
-            <td>5</td>
-            <td>Automatic</td>
-            <td class="price">KES 7,000</td>
-            <td><span class="badge avail">Available</span></td>
-          </tr>
-          <tr>
-            <td>Toyota Land Cruiser</td>
-            <td>4×4 Off-Road</td>
-            <td>7</td>
-            <td>Manual</td>
-            <td class="price">KES 12,000</td>
-            <td><span class="badge few">2 Left</span></td>
-          </tr>
-          <tr>
-            <td>Mercedes C-Class</td>
-            <td>Luxury Sedan</td>
-            <td>5</td>
-            <td>Automatic</td>
-            <td class="price">KES 15,000</td>
-            <td><span class="badge few">1 Left</span></td>
-          </tr>
-          <tr>
-            <td>Toyota HiAce</td>
-            <td>Minivan</td>
-            <td>14</td>
-            <td>Manual</td>
-            <td class="price">KES 9,500</td>
-            <td><span class="badge out">Unavailable</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h2>Fleet &amp; Pricing</h2>
+    <table border="1" cellpadding="8" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Vehicle</th>
+          <th>Category</th>
+          <th>Seats</th>
+          <th>Transmission</th>
+          <th>Daily Rate</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Toyota Vitz</td>
+          <td>Economy</td>
+          <td>5</td>
+          <td>Automatic</td>
+          <td>KES 3,500</td>
+          <td>Available</td>
+        </tr>
+        <tr>
+          <td>Mazda CX-5</td>
+          <td>SUV</td>
+          <td>5</td>
+          <td>Automatic</td>
+          <td>KES 7,000</td>
+          <td>Available</td>
+        </tr>
+        <tr>
+          <td>Toyota Land Cruiser</td>
+          <td>4x4 Off-Road</td>
+          <td>7</td>
+          <td>Manual</td>
+          <td>KES 12,000</td>
+          <td>2 Left</td>
+        </tr>
+        <tr>
+          <td>Mercedes C-Class</td>
+          <td>Luxury Sedan</td>
+          <td>5</td>
+          <td>Automatic</td>
+          <td>KES 15,000</td>
+          <td>1 Left</td>
+        </tr>
+        <tr>
+          <td>Toyota HiAce</td>
+          <td>Minivan</td>
+          <td>14</td>
+          <td>Manual</td>
+          <td>KES 9,500</td>
+          <td>Unavailable</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <section id="location">
-    
-    </div>
+  <!-- AUDIO -->
+  <section id="audio">
+    <h2>Our Message to You</h2>
+    <audio controls>
+      <source src="your-audio-file.mp3" type="audio/mpeg"/>
+      <source src="your-audio-file.ogg" type="audio/ogg"/>
+      Your browser does not support the audio element.
+    </audio>
+    <p>Have a listen before you get in touch — we'd love to hear from you.</p>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <div class="contact-card">
+    <div>
       <p>Ready to book or have a question? Reach us through any channel below.</p>
-      <ul class="dots">
-        <li><a href="tel:+254700000000" style="color:#bfc5cc; text-decoration:none;">+254 7123456780</a></li>
-        <li><a href="mailto:hello@driveeasy.co.ke" style="color:#bfc5cc; text-decoration:none;">hello@driveeasy.co.ke</a></li>
+      <ul>
+        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="mailto:hello@driveeasy.co.ke">hello@driveeasy.co.ke</a></li>
         <li>Waiyaki Way, Westlands, Nairobi</li>
         <li>Open Mon–Sun: 6 AM – 10 PM</li>
-        <li><a href="#" style="color:#bfc5cc; text-decoration:none;">WhatsApp Booking</a></li>
+        <li><a href="#">WhatsApp Booking</a></li>
       </ul>
     </div>
   </section>
@@ -303,7 +186,7 @@ allowfullscreen>
 </main>
 
 <footer>
-  <p>© 2026 <span>DriveEasy Car Rentals</span> — Nairobi, Kenya. All rights reserved.</p>
+  <p>&copy; 2026 DriveEasy Car Rentals — Nairobi, Kenya. All rights reserved.</p>
 </footer>
 
 </body>
