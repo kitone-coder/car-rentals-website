@@ -3,190 +3,269 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DriveEasy — Premium Car Rentals</title>
+  <title>DriveEasy — Premium Car Rentals Nairobi</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- ═══════════════════════════════ NAVIGATION ═══════════════════════════════ -->
 <nav>
-  <div><strong>DriveEasy</strong></div>
+  <a href="index.html" class="nav-logo">Drive<span>Easy</span></a>
   <ul>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#fleet">Our Fleet</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#videos">Videos</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Fleet</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="nav-book"><a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">Book Now ↗</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<header>
-  <p>Nairobi's #1 Car Rental Service</p>
-  <h1>Rent. Drive. Explore.</h1>
-  <p>Premium vehicles, transparent pricing, and hassle-free booking. Your perfect journey starts here.</p>
-  <div>
-    <a href="#fleet">Browse Fleet</a>
-    <a href="#how-it-works">How It Works</a>
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<header class="hero-main">
+  <p class="hero-eyebrow">Nairobi's #1 Car Rental Service</p>
+  <h1>Rent. <span>Drive.</span><br>Explore.</h1>
+  <p class="sub">Premium vehicles, transparent pricing, and hassle-free booking. Your perfect journey starts here.</p>
+  <div class="hero-cta">
+    <a href="services.html" class="btn btn-red">Browse Fleet</a>
+    <a href="about.html" class="btn btn-outline">Learn More</a>
   </div>
 </header>
 
+<!-- ═══════════════════════════════ MAIN CONTENT ═══════════════════════════════ -->
 <main>
 
-  <!-- HOW IT WORKS + BENEFITS (LISTS) -->
-  <section id="how-it-works">
-    <h2>Lists</h2>
-    <div>
+  <!-- ── PRACTICAL 1 & 9: IMAGES (2 images, one clickable linking to gallery.html) ── -->
+  <section>
+    <h2 class="section-title">Featured Vehicles</h2>
+    <div class="grid-2">
 
-      <div>
-        <h3>How to Rent a Car — Step by Step</h3>
-        <ol>
-          <li>Choose your vehicle from our online fleet</li>
-          <li>Select your pickup date, time, and location</li>
-          <li>Submit your driver's licence and ID for verification</li>
-          <li>Complete payment — credit card, M-Pesa, or bank transfer</li>
-          <li>Pick up your keys and hit the open road!</li>
-        </ol>
+      <!-- CLICKABLE IMAGE → gallery.html -->
+      <figure class="img-card">
+        <a href="gallery.html">
+          <img
+            src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80"
+            alt="Red sports car with aerodynamic design on an open road — click to view gallery"
+            width="800" height="240"/>
+          <span class="img-link-badge">📸 View Gallery</span>
+        </a>
+        <figcaption>🏎️ Sport Edition — Click to browse our full photo gallery.</figcaption>
+      </figure>
+
+      <figure class="img-card">
+        <img
+          src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80"
+          alt="Modern silver SUV parked in a scenic outdoor location surrounded by nature"
+          width="800" height="240"/>
+        <figcaption>🚙 Premium SUV — Space, comfort, and capability for any terrain.</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ── PRACTICAL 3: ORDERED LIST ── -->
+  <section>
+    <h2 class="section-title">How It Works</h2>
+    <div class="card">
+      <h3>📋 Step-by-Step Rental Process</h3>
+      <ol class="styled">
+        <li>Browse our fleet online and choose your ideal vehicle.</li>
+        <li>Select your pickup date, time, and preferred location.</li>
+        <li>Submit your driver's licence and valid national ID for verification.</li>
+        <li>Complete payment via M-Pesa, credit card, or bank transfer.</li>
+        <li>Pick up your keys or request airport delivery — and drive away!</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── PRACTICAL 3: UNORDERED LIST ── -->
+  <section>
+    <h2 class="section-title">Why Choose DriveEasy</h2>
+    <div class="card">
+      <h3>✅ Our Key Benefits</h3>
+      <ul class="bullets">
+        <li>24/7 roadside assistance anywhere in Kenya</li>
+        <li>Zero hidden fees — fully transparent pricing, always</li>
+        <li>Free unlimited mileage on every booking</li>
+        <li>Fully insured and sanitised vehicles on every rental</li>
+        <li>Flexible airport pickup and doorstep delivery available</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── PRACTICAL 3: NESTED LIST ── -->
+  <section>
+    <h2 class="section-title">Car Categories</h2>
+    <div class="grid-2">
+
+      <div class="card">
+        <h3>🚗 Standard Categories</h3>
+        <ul class="nested">
+          <li>
+            <span class="cat">Economy Cars</span>
+            <ul>
+              <li>Toyota Vitz — KES 3,500/day</li>
+              <li>Honda Fit — KES 4,000/day</li>
+              <li>Suzuki Swift — KES 3,800/day</li>
+            </ul>
+          </li>
+          <li>
+            <span class="cat">SUVs &amp; Crossovers</span>
+            <ul>
+              <li>Mazda CX-5 — KES 7,000/day</li>
+              <li>Toyota RAV4 — KES 8,000/day</li>
+              <li>Subaru Forester — KES 7,500/day</li>
+            </ul>
+          </li>
+          <li>
+            <span class="cat">Luxury Vehicles</span>
+            <ul>
+              <li>Mercedes C-Class — KES 15,000/day</li>
+              <li>BMW 3 Series — KES 14,000/day</li>
+              <li>Audi A4 — KES 13,500/day</li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
-      <div>
-        <h3>Why Choose DriveEasy</h3>
-        <ul>
-          <li>24/7 roadside assistance anywhere in Kenya</li>
-          <li>Zero hidden fees — what you see is what you pay</li>
-          <li>Free unlimited mileage on all bookings</li>
-          <li>Fully insured &amp; sanitised vehicles every rental</li>
-          <li>Airport pickup and drop-off available</li>
+      <div class="card">
+        <h3>🚐 Specialist Vehicles</h3>
+        <ul class="nested">
+          <li>
+            <span class="cat">4×4 &amp; Off-Road</span>
+            <ul>
+              <li>Toyota Land Cruiser — KES 12,000/day</li>
+              <li>Mitsubishi Pajero — KES 10,000/day</li>
+              <li>Nissan Patrol — KES 11,000/day</li>
+            </ul>
+          </li>
+          <li>
+            <span class="cat">Vans &amp; Minibuses</span>
+            <ul>
+              <li>Toyota HiAce (14-seater) — KES 9,500/day</li>
+              <li>Nissan Caravan (8-seater) — KES 7,000/day</li>
+            </ul>
+          </li>
+          <li>
+            <span class="cat">Safari &amp; Tour Vehicles</span>
+            <ul>
+              <li>Land Cruiser (pop-up roof) — KES 18,000/day</li>
+              <li>Customised safari vans available on request</li>
+            </ul>
+          </li>
         </ul>
       </div>
 
     </div>
   </section>
 
-  <!-- GALLERY (IMAGES) -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div>
+  <!-- ── PRACTICAL 4: TABLE ── -->
+  <section>
+    <h2 class="section-title">Fleet &amp; Pricing</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>DriveEasy Vehicle Fleet — Daily Rental Rates (2026)</caption>
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Category</th>
+            <th>Seats</th>
+            <th>Transmission</th>
+            <th>Daily Rate</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Toyota Vitz</td>
+            <td>Economy</td>
+            <td>5</td>
+            <td>Automatic</td>
+            <td class="price">KES 3,500</td>
+            <td><span class="badge green">Available</span></td>
+          </tr>
+          <tr>
+            <td>Mazda CX-5</td>
+            <td>SUV</td>
+            <td>5</td>
+            <td>Automatic</td>
+            <td class="price">KES 7,000</td>
+            <td><span class="badge green">Available</span></td>
+          </tr>
+          <tr>
+            <td>Toyota Land Cruiser</td>
+            <td>4×4 Off-Road</td>
+            <td>7</td>
+            <td>Manual</td>
+            <td class="price">KES 12,000</td>
+            <td><span class="badge yellow">2 Left</span></td>
+          </tr>
+          <tr>
+            <td>Mercedes C-Class</td>
+            <td>Luxury Sedan</td>
+            <td>5</td>
+            <td>Automatic</td>
+            <td class="price">KES 15,000</td>
+            <td><span class="badge yellow">1 Left</span></td>
+          </tr>
+          <tr>
+            <td>Toyota HiAce</td>
+            <td>Minivan</td>
+            <td>14</td>
+            <td>Manual</td>
+            <td class="price">KES 9,500</td>
+            <td><span class="badge red">Unavailable</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1rem;"><a href="services.html" class="btn btn-outline" style="font-size:.85rem;padding:.5rem 1.4rem;">View Full Fleet →</a></p>
+  </section>
 
-      <figure>
-        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80" alt="Sleek sports car on an open road" width="400"/>
-        <figcaption>Sport Edition — Built for drivers who love performance.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80" alt="Modern SUV parked outdoors" width="400"/>
-        <figcaption>Premium SUV — Space, comfort, and capability for any terrain.</figcaption>
-      </figure>
-
+  <!-- ── PRACTICAL 6: VIDEO ── -->
+  <section>
+    <h2 class="section-title">Watch &amp; Learn</h2>
+    <p class="video-label">🎬 Top Tips for Renting a Car in Kenya</p>
+    <div class="video-wrap">
+      <div class="ratio">
+        <iframe
+          src="https://www.youtube.com/embed/4SHBiLlsJoQ"
+          title="Top tips for renting a car — what to check before you drive away"
+          width="100%"
+          allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+      <p class="video-caption">Learn what to inspect before you drive away — a must-watch for every first-time renter.</p>
     </div>
   </section>
 
-  <!-- VIDEOS -->
-  <section id="videos">
-    <h2>Watch &amp; Learn</h2>
-    <div>
-
-      <div>
-        <iframe width="400" height="225" src="https://www.youtube.com/embed/4SHBiLlsJoQ" title="How to rent a car — tips and advice" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        <p>Top tips for renting a car — what to check before you drive away.</p>
-      </div>
-
-      <div>
-        <iframe width="400" height="225" src="https://www.youtube.com/embed/8A-C3FJEeM8" title="Best road trips in Kenya" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        <p>Best road trip routes in Kenya — inspiration for your next adventure.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PRICING TABLE -->
-  <section id="pricing">
-    <h2>Fleet &amp; Pricing</h2>
-    <table border="1" cellpadding="8" cellspacing="0">
-      <thead>
-        <tr>
-          <th>Vehicle</th>
-          <th>Category</th>
-          <th>Seats</th>
-          <th>Transmission</th>
-          <th>Daily Rate</th>
-          <th>Availability</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Toyota Vitz</td>
-          <td>Economy</td>
-          <td>5</td>
-          <td>Automatic</td>
-          <td>KES 3,500</td>
-          <td>Available</td>
-        </tr>
-        <tr>
-          <td>Mazda CX-5</td>
-          <td>SUV</td>
-          <td>5</td>
-          <td>Automatic</td>
-          <td>KES 7,000</td>
-          <td>Available</td>
-        </tr>
-        <tr>
-          <td>Toyota Land Cruiser</td>
-          <td>4x4 Off-Road</td>
-          <td>7</td>
-          <td>Manual</td>
-          <td>KES 12,000</td>
-          <td>2 Left</td>
-        </tr>
-        <tr>
-          <td>Mercedes C-Class</td>
-          <td>Luxury Sedan</td>
-          <td>5</td>
-          <td>Automatic</td>
-          <td>KES 15,000</td>
-          <td>1 Left</td>
-        </tr>
-        <tr>
-          <td>Toyota HiAce</td>
-          <td>Minivan</td>
-          <td>14</td>
-          <td>Manual</td>
-          <td>KES 9,500</td>
-          <td>Unavailable</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- AUDIO -->
-  <section id="audio">
-    <h2>Our Message to You</h2>
-    <audio controls>
-      <source src="your-audio-file.mp3" type="audio/mpeg"/>
-      <source src="your-audio-file.ogg" type="audio/ogg"/>
-      Your browser does not support the audio element.
-    </audio>
-    <p>Have a listen before you get in touch — we'd love to hear from you.</p>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <div>
-      <p>Ready to book or have a question? Reach us through any channel below.</p>
-      <ul>
-        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
-        <li><a href="mailto:hello@driveeasy.co.ke">hello@driveeasy.co.ke</a></li>
-        <li>Waiyaki Way, Westlands, Nairobi</li>
-        <li>Open Mon–Sun: 6 AM – 10 PM</li>
-        <li><a href="#">WhatsApp Booking</a></li>
-      </ul>
+  <!-- ── PRACTICAL 5: AUDIO ── -->
+  <section>
+    <h2 class="section-title">Promotional Audio</h2>
+    <div class="audio-box">
+      <h3>🎵 DriveEasy — June 2026 Promotional Announcement</h3>
+      <p>Listen to our latest deals, special offers, and seasonal discounts for Nairobi customers.</p>
+      <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"/>
+        Your browser does not support the audio element. Please upgrade to a modern browser.
+      </audio>
     </div>
   </section>
 
 </main>
 
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
 <footer>
-  <p>&copy; 2026 DriveEasy Car Rentals — Nairobi, Kenya. All rights reserved.</p>
+  <p>© 2026 <span>DriveEasy Car Rentals</span> — Waiyaki Way, Westlands, Nairobi, Kenya</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Fleet</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+  </div>
 </footer>
 
 </body>
