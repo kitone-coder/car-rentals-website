@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DriveEasy — Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .admin-header {
+      background:#0a0a0a;
+      border-bottom:1px solid var(--border);
+      padding:1rem 2rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .admin-header h1 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.6rem;
+      letter-spacing:.1em;
+      color:var(--white);
+    }
+    .admin-header h1 span { color:var(--red); }
+    .admin-header a {
+      color:var(--muted);
+      font-size:.85rem;
+      text-decoration:none;
+    }
+    .admin-header a:hover { color:var(--red); }
+
+    .stats-row {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+      margin:2rem 0 0;
+    }
+    .stat-mini {
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-top:3px solid var(--red);
+      border-radius:8px;
+      padding:1.2rem 1.5rem;
+      text-align:center;
+    }
+    .stat-mini .n {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:2.2rem;
+      color:var(--red);
+      display:block;
+    }
+    .stat-mini .l { font-size:.8rem; color:var(--muted); }
+
+    .search-bar { display:flex; gap:.8rem; margin:2rem 0 1.2rem; }
+    .search-bar input { flex:1; }
+    .search-bar button {
+      background:var(--red);
+      color:#fff;
+      border:none;
+      padding:.7rem 1.4rem;
+      border-radius:4px;
+      cursor:pointer;
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:.95rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    .section-label {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.8rem;
+      letter-spacing:.08em;
+      color:var(--white);
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+      margin:2.5rem 0 1rem;
+    }
+    .section-label::after {
+      content:'';
+      flex:1;
+      height:1px;
+      background:linear-gradient(to right,var(--red),transparent);
+    }
+    .count-badge {
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:.85rem;
+      background:rgba(232,39,45,.15);
+      color:var(--red);
+      border:1px solid rgba(232,39,45,.3);
+      padding:.15rem .6rem;
+      border-radius:2px;
+      letter-spacing:.08em;
+    }
+    .msg-cell {
+      max-width:200px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    @media(max-width:640px){ .stats-row{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ ADMIN HEADER ══════════ -->
+<div class="admin-header">
+  <h1>Drive<span>Easy</span> — Admin Dashboard</h1>
+  <a href="index.html">← Back to Website</a>
+</div>
+
+<main style="max-width:1200px;margin:0 auto;padding:0 1.5rem 5rem;">
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-mini">
+      <span class="n" id="enquiries-count">—</span>
+      <span class="l">Total Enquiries</span>
+    </div>
+    <div class="stat-mini">
+      <span class="n" id="newsletter-count">—</span>
+      <span class="l">Newsletter Subscribers</span>
+    </div>
+    <div class="stat-mini">
+      <span class="n">24/7</span>
+      <span class="l">Support Available</span>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search by name, email, vehicle, purpose..."/>
+    <button onclick="filterTable()">Search</button>
+  </div>
+
+  <!-- ENQUIRIES TABLE -->
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <h2 class="section-label">Booking Enquiries</h2>
+    <span class="count-badge" id="enquiries-count-badge">Loading...</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>enquiries — fetched live from Supabase</caption>
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Vehicle</th>
+          <th>Pickup</th>
+          <th>Return</th>
+          <th>Location</th>
+          <th>Purpose</th>
+          <th>Source</th>
+          <th>Message</th>
+          <th>Submitted</th>
+        </tr>
+      </thead>
+      <tbody id="enquiries-tbody">
+        <tr>
+          <td colspan="12" style="text-align:center;color:var(--muted);padding:2rem;">
+            Loading from Supabase...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- NEWSLETTER TABLE -->
+  <div style="display:flex;align-items:center;gap:1rem;margin-top:3rem;">
+    <h2 class="section-label">Newsletter Subscribers</h2>
+    <span class="count-badge" id="newsletter-count-badge">Loading...</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>newsletter — fetched live from Supabase</caption>
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Email</th>
+          <th>Signed Up</th>
+        </tr>
+      </thead>
+      <tbody id="newsletter-tbody">
+        <tr>
+          <td colspan="3" style="text-align:center;color:var(--muted);padding:2rem;">
+            Loading from Supabase...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- REFERENCE BOX -->
+  <section style="margin-top:3rem;">
+    <h2 class="section-label">How This Works</h2>
+    <div class="grid-2" style="gap:1.5rem;">
+      <div class="card">
+        <h3>⚡ JavaScript + Supabase</h3>
+        <ol class="styled">
+          <li>Supabase JS client connects to cloud database</li>
+          <li>Form data is collected from input fields</li>
+          <li><code>.insert()</code> — posts new enquiry to Supabase</li>
+          <li><code>.select()</code> — fetches all records back</li>
+          <li><code>.order()</code> — sorts by newest first</li>
+          <li>Results are dynamically rendered into the table</li>
+          <li>Search filters rows live without page reload</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>🗄️ Supabase Tables Used</h3>
+        <ul class="bullets">
+          <li><strong style="color:var(--silver);">enquiries</strong> — stores all contact form submissions</li>
+          <li><strong style="color:var(--silver);">newsletter</strong> — stores email sign-ups</li>
+          <li>Both tables hosted on Supabase (PostgreSQL)</li>
+          <li>Data persists in the cloud — no local server needed</li>
+          <li>Works on GitHub Pages — no PHP required</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 <span>DriveEasy Car Rentals</span> — Admin Panel</p>
+</footer>
+
+<!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+<script>
+  // Fix count badges — use the ones with -badge suffix
+  document.addEventListener('DOMContentLoaded', () => {
+    const eq  = document.getElementById('enquiries-count');
+    const nw  = document.getElementById('newsletter-count');
+    const eqb = document.getElementById('enquiries-count-badge');
+    const nwb = document.getElementById('newsletter-count-badge');
+
+    // Observer to sync the stat boxes with the badges
+    const sync = () => {
+      if (eqb && eq) eqb.textContent = eq.textContent;
+      if (nwb && nw) nwb.textContent = nw.textContent;
+    };
+    setTimeout(sync, 2000);
+    setTimeout(sync, 4000);
+  });
+</script>
+
+</body>
+</html>
