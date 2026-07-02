@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════ NAVIGATION ═══════════════════════════════ -->
+<!-- ══════════════════ NAVIGATION ══════════════════ -->
 <nav>
   <a href="index.html" class="nav-logo">Drive<span>Easy</span></a>
   <ul>
@@ -17,71 +18,55 @@
     <li><a href="services.html">Fleet</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="contact.html" class="active">Contact</a></li>
-    <li class="nav-book"><a href="https://wa.me/254719719178" target="_blank" rel="noopener noreferrer">Book Now ↗</a></li>
+    <li class="nav-book">
+      <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">Book Now ↗</a>
+    </li>
   </ul>
 </nav>
 
-<!-- ═══════════════════════════════ PAGE HERO ═══════════════════════════════ -->
+<!-- ══════════════════ PAGE HERO ══════════════════ -->
 <div class="page-hero">
   <h1>Contact <span>Us</span></h1>
-  <p>Get in touch — we're available 7 days a week, 6 AM to 10 PM. Instant responses via WhatsApp.</p>
+  <p>Get in touch — available 7 days a week, 6 AM–10 PM. Instant responses via WhatsApp.</p>
 </div>
 
-<!-- ═══════════════════════════════ MAIN CONTENT ═══════════════════════════════ -->
 <main>
 
-  <!-- ── CONTACT INFO + FORM ── -->
+  <!-- ══════════════════ STATUS MESSAGE ══════════════════ -->
+  <div id="status-box" style="display:none;" class="alert"></div>
+
+  <!-- ══════════════════ CONTACT LAYOUT ══════════════════ -->
   <section>
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-layout">
 
-      <!-- LEFT: CONTACT DETAILS -->
+      <!-- LEFT: DETAILS -->
       <div class="contact-details">
 
         <div class="card" style="margin-bottom:1.5rem;">
           <h3>📍 Our Location</h3>
           <ul class="contact-list">
-            <li>
-              <span class="icon">📍</span>
-              <span>Waiyaki Way, Westlands<br/>Nairobi, Kenya</span>
-            </li>
-            <li>
-              <span class="icon">🕐</span>
-              <span>Monday – Sunday<br/>6:00 AM – 10:00 PM</span>
-            </li>
+            <li><span class="icon">📍</span><span>Waiyaki Way, Westlands<br/>Nairobi, Kenya</span></li>
+            <li><span class="icon">🕐</span><span>Monday – Sunday<br/>6:00 AM – 10:00 PM</span></li>
           </ul>
         </div>
 
         <div class="card" style="margin-bottom:1.5rem;">
           <h3>📞 Call or Message</h3>
           <ul class="contact-list">
-            <li>
-              <span class="icon">📞</span>
-              <a href="tel:+254719719178">+254 719 719 178</a>
-            </li>
-            <li>
-              <span class="icon">💬</span>
-              <a href="https://wa.me/2547719719178" target="_blank" rel="noopener noreferrer">WhatsApp — instant booking</a>
-            </li>
-            <li>
-              <span class="icon">✉️</span>
-              <a href="mailto:hello@driveeasy.co.ke">hello@driveeasy.co.ke</a>
-            </li>
+            <li><span class="icon">📞</span><a href="tel:+254700000000">+254 700 000 000</a></li>
+            <li><span class="icon">💬</span><a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp — instant booking</a></li>
+            <li><span class="icon">✉️</span><a href="mailto:hello@driveeasy.co.ke">hello@driveeasy.co.ke</a></li>
           </ul>
         </div>
 
         <div class="card">
           <h3>🚗 Quick Actions</h3>
           <div style="display:flex;flex-direction:column;gap:.8rem;margin-top:.4rem;">
-            <a href="https://wa.me/254719719178" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="text-align:center;">
-              💬 Book via WhatsApp ↗
-            </a>
-            <a href="services.html" class="btn btn-outline" style="text-align:center;">
-              🚘 Browse Our Fleet
-            </a>
-            <a href="tel:+254719719178" class="btn btn-outline" style="text-align:center;">
-              📞 Call Us Now
-            </a>
+            <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer"
+               class="btn btn-red" style="text-align:center;">💬 Book via WhatsApp ↗</a>
+            <a href="services.html" class="btn btn-outline" style="text-align:center;">🚘 Browse Our Fleet</a>
+            <a href="tel:+254700000000" class="btn btn-outline" style="text-align:center;">📞 Call Us Now</a>
           </div>
         </div>
 
@@ -90,104 +75,99 @@
       <!-- RIGHT: ENQUIRY FORM -->
       <div class="card contact-form-card">
         <h3>📋 Send an Enquiry</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">Fill in your details and we'll get back to you within the hour.</p>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">
+          Fill in your details and we'll respond within the hour.
+        </p>
 
-        <form action="#" method="post" novalidate>
+        <form id="enquiryForm">
 
           <div class="grid-2" style="gap:1rem;">
             <div class="form-group">
-              <label for="first-name">First Name *</label>
-              <input type="text" id="first-name" name="first_name" placeholder="e.g. James" required/>
+              <label for="first_name">First Name *</label>
+              <input type="text" id="first_name" placeholder="e.g. James" required/>
             </div>
             <div class="form-group">
-              <label for="last-name">Last Name *</label>
-              <input type="text" id="last-name" name="last_name" placeholder="e.g. Mwangi" required/>
+              <label for="last_name">Last Name *</label>
+              <input type="text" id="last_name" placeholder="e.g. Mwangi" required/>
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required/>
+            <input type="email" id="email" placeholder="you@example.com" required/>
           </div>
 
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+254 719 719 178"/>
+            <input type="tel" id="phone" placeholder="+254 700 000 000"/>
           </div>
 
           <div class="form-group">
             <label for="vehicle">Vehicle of Interest</label>
-            <select id="vehicle" name="vehicle">
+            <select id="vehicle">
               <option value="" disabled selected>— Select a vehicle category —</option>
-              <option value="economy">Economy (Toyota Vitz, Honda Fit)</option>
-              <option value="suv">SUV (Mazda CX-5, Toyota RAV4)</option>
-              <option value="luxury">Luxury Sedan (Mercedes C-Class, BMW 3)</option>
-              <option value="offroad">4×4 Off-Road (Land Cruiser, Pajero)</option>
-              <option value="safari">Safari / Pop-Up Roof Vehicle</option>
-              <option value="minivan">Minivan / Group Transport</option>
-              <option value="other">Other / Not Sure Yet</option>
+              <option value="Economy (Toyota Vitz, Honda Fit)">Economy (Toyota Vitz, Honda Fit)</option>
+              <option value="SUV (Mazda CX-5, Toyota RAV4)">SUV (Mazda CX-5, Toyota RAV4)</option>
+              <option value="Luxury Sedan (Mercedes C-Class, BMW 3)">Luxury Sedan (Mercedes C-Class, BMW 3)</option>
+              <option value="4x4 Off-Road (Land Cruiser, Pajero)">4×4 Off-Road (Land Cruiser, Pajero)</option>
+              <option value="Safari / Pop-Up Roof Vehicle">Safari / Pop-Up Roof Vehicle</option>
+              <option value="Minivan / Group Transport">Minivan / Group Transport</option>
+              <option value="Other / Not Sure Yet">Other / Not Sure Yet</option>
             </select>
           </div>
 
           <div class="grid-2" style="gap:1rem;">
             <div class="form-group">
-              <label for="pickup-date">Pickup Date</label>
-              <input type="date" id="pickup-date" name="pickup_date"/>
+              <label for="pickup_date">Pickup Date</label>
+              <input type="date" id="pickup_date"/>
             </div>
             <div class="form-group">
-              <label for="return-date">Return Date</label>
-              <input type="date" id="return-date" name="return_date"/>
+              <label for="return_date">Return Date</label>
+              <input type="date" id="return_date"/>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="pickup-location">Pickup Location</label>
-            <select id="pickup-location" name="pickup_location">
+            <label for="pickup_location">Pickup Location</label>
+            <select id="pickup_location">
               <option value="" disabled selected>— Select pickup point —</option>
-              <option value="westlands">Westlands Office (Main)</option>
-              <option value="jkia">JKIA Airport</option>
-              <option value="wilson">Wilson Airport</option>
-              <option value="cbd">Nairobi CBD</option>
-              <option value="doorstep">Doorstep Delivery (Nairobi)</option>
+              <option value="Westlands Office (Main)">Westlands Office (Main)</option>
+              <option value="JKIA Airport">JKIA Airport</option>
+              <option value="Wilson Airport">Wilson Airport</option>
+              <option value="Nairobi CBD">Nairobi CBD</option>
+              <option value="Doorstep Delivery (Nairobi)">Doorstep Delivery (Nairobi)</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="message">Additional Message</label>
-            <textarea id="message" name="message" placeholder="Any special requirements, questions, or notes for our team..."></textarea>
+            <textarea id="message" placeholder="Any special requirements or questions..."></textarea>
           </div>
 
-          <!-- RADIO: purpose of rental -->
+          <!-- RADIO: Purpose -->
           <div class="form-group">
             <label style="margin-bottom:.8rem;">Purpose of Rental</label>
             <div class="radio-group">
-              <label class="radio-label">
-                <input type="radio" name="purpose" value="personal"/> Personal / Leisure
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="purpose" value="business"/> Business Travel
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="purpose" value="safari"/> Safari / Tour
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="purpose" value="event"/> Wedding / Event
-              </label>
+              <label class="radio-label"><input type="radio" name="purpose" value="Personal / Leisure"/> Personal / Leisure</label>
+              <label class="radio-label"><input type="radio" name="purpose" value="Business Travel"/> Business Travel</label>
+              <label class="radio-label"><input type="radio" name="purpose" value="Safari / Tour"/> Safari / Tour</label>
+              <label class="radio-label"><input type="radio" name="purpose" value="Wedding / Event"/> Wedding / Event</label>
             </div>
           </div>
 
-          <!-- CHECKBOX: how did you hear -->
+          <!-- CHECKBOXES: How did you hear -->
           <div class="form-group">
             <label style="margin-bottom:.8rem;">How Did You Hear About Us?</label>
             <div class="checkbox-group">
-              <label class="check-label"><input type="checkbox" name="source" value="google"/> Google Search</label>
-              <label class="check-label"><input type="checkbox" name="source" value="social"/> Social Media</label>
-              <label class="check-label"><input type="checkbox" name="source" value="referral"/> Friend / Family</label>
-              <label class="check-label"><input type="checkbox" name="source" value="repeat"/> Returning Customer</label>
+              <label class="check-label"><input type="checkbox" value="Google Search"/> Google Search</label>
+              <label class="check-label"><input type="checkbox" value="Social Media"/> Social Media</label>
+              <label class="check-label"><input type="checkbox" value="Friend / Family"/> Friend / Family</label>
+              <label class="check-label"><input type="checkbox" value="Returning Customer"/> Returning Customer</label>
             </div>
           </div>
 
-          <button type="submit" class="btn btn-red" style="width:100%;margin-top:.5rem;font-size:1.05rem;padding:1rem;">
+          <button type="submit" class="btn btn-red"
+                  style="width:100%;margin-top:.5rem;font-size:1.05rem;padding:1rem;">
             Send Enquiry →
           </button>
 
@@ -197,66 +177,34 @@
     </div>
   </section>
 
-  <!-- ── GOOGLE MAP ── -->
+  <!-- ══════════════════ MAP ══════════════════ -->
   <section>
     <h2 class="section-title">Find Our Showroom</h2>
     <p style="color:var(--muted);margin-bottom:1.2rem;">
-      Visit us at <strong style="color:var(--silver);">Waiyaki Way, Westlands, Nairobi</strong> — free on-site parking available.
+      Visit us at <strong style="color:var(--silver);">Waiyaki Way, Westlands, Nairobi</strong> — free on-site parking.
     </p>
     <div class="map-wrap">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808!2d36.8018!3d-1.2641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173c0a1f9de7%3A0x3e4fb5d8b2e7a6b0!2sWestlands%2C%20Nairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1620000000000"
-        width="100%"
-        height="420"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        title="DriveEasy showroom — Westlands, Nairobi on Google Maps">
+        width="100%" height="420" style="border:0;"
+        allowfullscreen="" loading="lazy"
+        title="DriveEasy — Westlands, Nairobi">
       </iframe>
     </div>
   </section>
 
-  <!-- ── FAQ ── -->
-  <section>
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="grid-2">
-
-      <div class="card">
-        <h3>📋 Booking &amp; Requirements</h3>
-        <ol class="styled">
-          <li>Minimum age to rent is <strong style="color:var(--silver);">23 years</strong></li>
-          <li>Valid driver's licence required (Kenyan or International)</li>
-          <li>Original national ID or passport required at pickup</li>
-          <li>Refundable security deposit required on all rentals</li>
-          <li>Bookings can be made via WhatsApp, phone, or this form</li>
-        </ol>
-      </div>
-
-      <div class="card">
-        <h3>✅ What's Included</h3>
-        <ul class="bullets">
-          <li>Comprehensive insurance on every vehicle</li>
-          <li>Unlimited mileage — no per-km charges</li>
-          <li>24/7 roadside assistance throughout Kenya</li>
-          <li>Airport pickup &amp; doorstep delivery available</li>
-          <li>Clean, inspected, and fully fuelled vehicle on pickup</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── CTA STRIP ── -->
+  <!-- ══════════════════ CTA ══════════════════ -->
   <section style="text-align:center;padding:2rem 0 1rem;">
     <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;margin-bottom:1rem;letter-spacing:.06em;">Ready to Hit the Road?</h2>
     <p style="color:var(--muted);margin-bottom:1.8rem;">Skip the form — message us directly on WhatsApp for the fastest response.</p>
-    <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="margin-right:1rem;">Book via WhatsApp ↗</a>
+    <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer"
+       class="btn btn-red" style="margin-right:1rem;">Book via WhatsApp ↗</a>
     <a href="services.html" class="btn btn-outline">Browse Fleet</a>
   </section>
 
 </main>
 
-<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<!-- ══════════════════ FOOTER ══════════════════ -->
 <footer>
   <p>© 2026 <span>DriveEasy Car Rentals</span> — Waiyaki Way, Westlands, Nairobi, Kenya</p>
   <div class="footer-links">
@@ -266,8 +214,13 @@
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
     <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+    <a href="admin.html" style="opacity:.4;font-size:.75rem;">🔐 Admin</a>
   </div>
 </footer>
+
+<!-- ══════════════════ SUPABASE JS ══════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
