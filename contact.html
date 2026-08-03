@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DriveEasy — Contact Us</title>
   <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -160,10 +159,10 @@
           <div class="form-group">
             <label style="margin-bottom:.8rem;">How Did You Hear About Us?</label>
             <div class="checkbox-group">
-              <label class="check-label"><input type="checkbox" value="Google Search"/> Google Search</label>
-              <label class="check-label"><input type="checkbox" value="Social Media"/> Social Media</label>
-              <label class="check-label"><input type="checkbox" value="Friend / Family"/> Friend / Family</label>
-              <label class="check-label"><input type="checkbox" value="Returning Customer"/> Returning Customer</label>
+              <label class="check-label"><input type="checkbox" name="source" value="Google Search"/> Google Search</label>
+              <label class="check-label"><input type="checkbox" name="source" value="Social Media"/> Social Media</label>
+              <label class="check-label"><input type="checkbox" name="source" value="Friend / Family"/> Friend / Family</label>
+              <label class="check-label"><input type="checkbox" name="source" value="Returning Customer"/> Returning Customer</label>
             </div>
           </div>
 
@@ -219,32 +218,30 @@
   </div>
 </footer>
 
-<!-- ══════════════════ SUPABASE JS ══════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js"></script>,
-  <script>
-  // 1. Initialize Supabase
+<!-- ══════════════════ SUPABASE INTEGRATION SCRIPT ══════════════════ -->
+<script>
+  // 1. Initialize Supabase (Clean URL without /rest/v1/)
   const { createClient } = supabase;
-  const supabaseUrl = 'https://jrkleiprsjblmaqljzki.supabase.co/rest/v1/'; // Replace with your project URL
-  const supabaseAnonKey = 'sb_publishable_QFRDKZRJ1a0OjoKRyivnNA_UDmuzcI1'; // Replace with your anon public key
+  const supabaseUrl = 'https://jrkleiprsjblmaqljzki.supabase.co'; 
+  const supabaseAnonKey = 'sb_publishable_QFRDKZRJ1a0OjoKRyivnNA_UDmuzcI1'; 
   const _supabase = createClient(supabaseUrl, supabaseAnonKey);
 
   // 2. Target your form
-  const contactForm = document.querySelector('form');
+  const contactForm = document.querySelector('#enquiryForm');
 
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault(); // Stop page reload
 
-      // 3. Grab values from the form inputs
-      const first_name = document.querySelector('#first-name').value;
-      const last_name = document.querySelector('#last-name').value;
+      // 3. Grab values using matching IDs
+      const first_name = document.querySelector('#first_name').value;
+      const last_name = document.querySelector('#last_name').value;
       const email = document.querySelector('#email').value;
       const phone = document.querySelector('#phone').value;
       const vehicle = document.querySelector('#vehicle').value;
-      const pickup_date = document.querySelector('#pickup-date').value;
-      const return_date = document.querySelector('#return-date').value;
-      const pickup_location = document.querySelector('#pickup-location').value;
+      const pickup_date = document.querySelector('#pickup_date').value;
+      const return_date = document.querySelector('#return_date').value;
+      const pickup_location = document.querySelector('#pickup_location').value;
       const message = document.querySelector('#message').value;
 
       // Grab selected radio button (Purpose)
@@ -281,7 +278,7 @@
 
       } catch (error) {
         console.error('Error submitting form:', error.message);
-        alert('Failed to submit your booking. Please try again.');
+        alert('Error saving your enquiry: ' + error.message);
       }
     });
   }
