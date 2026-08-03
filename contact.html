@@ -5,11 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DriveEasy — Contact Us</title>
   <link rel="stylesheet" href="style.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media(max-width:768px){ .contact-layout { grid-template-columns: 1fr; } }
+
+    .contact-list { list-style:none; padding:0; }
+    .contact-list li {
+      display:flex; gap:.9rem; align-items:flex-start;
+      padding:.7rem 0; border-bottom:1px solid var(--border);
+      color:#bfc5cc; font-size:.93rem;
+    }
+    .contact-list li:last-child { border:none; }
+    .contact-list .icon { color:var(--red); flex-shrink:0; font-size:1.1rem; margin-top:.05rem; }
+    .contact-list a { color:#bfc5cc; text-decoration:none; }
+    .contact-list a:hover { color:var(--red); }
+
+    .radio-group, .checkbox-group {
+      display:flex; flex-wrap:wrap; gap:.6rem;
+    }
+    .radio-label, .check-label {
+      display:flex; align-items:center; gap:.5rem;
+      background:#111; border:1px solid var(--border);
+      padding:.4rem .9rem; border-radius:4px;
+      color:#bfc5cc; font-size:.88rem; cursor:pointer;
+      transition:border-color .2s;
+    }
+    .radio-label:hover, .check-label:hover { border-color:var(--red); }
+    input[type="radio"], input[type="checkbox"] { accent-color:var(--red); }
+
+    .alert {
+      padding:1rem 1.5rem; border-radius:6px;
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:1rem; letter-spacing:.05em;
+      margin-bottom:1.5rem;
+    }
+    .alert.success {
+      background:rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.3);
+      border-left:4px solid #4ade80;
+      color:#4ade80;
+    }
+    .alert.error {
+      background:rgba(239,68,68,.1);
+      border:1px solid rgba(239,68,68,.3);
+      border-left:4px solid #f87171;
+      color:#f87171;
+    }
+    .btn[disabled]{ opacity:.5; cursor:not-allowed; transform:none !important; }
+    .spinner {
+      display:inline-block; width:13px; height:13px;
+      border:2px solid #fff4; border-top-color:#fff;
+      border-radius:50%; animation:spin .7s linear infinite;
+      margin-right:.5rem; vertical-align:middle;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+  </style>
 </head>
 <body>
 
-<!-- ══════════════════ NAVIGATION ══════════════════ -->
+<!-- ══════════════════ NAV ══════════════════ -->
 <nav>
   <a href="index.html" class="nav-logo">Drive<span>Easy</span></a>
   <ul>
@@ -32,22 +91,20 @@
 
 <main>
 
-  <!-- ══════════════════ STATUS MESSAGE ══════════════════ -->
-  <div id="status-box" style="display:none;" class="alert"></div>
+  <!-- STATUS BOX -->
+  <div id="statusBox" style="display:none;" class="alert"></div>
 
-  <!-- ══════════════════ CONTACT LAYOUT ══════════════════ -->
   <section>
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-layout">
 
-      <!-- LEFT: DETAILS -->
-      <div class="contact-details">
-
+      <!-- LEFT: INFO -->
+      <div>
         <div class="card" style="margin-bottom:1.5rem;">
-          <h3>📍 Our Location</h3>
+          <h3>📍 Location &amp; Hours</h3>
           <ul class="contact-list">
             <li><span class="icon">📍</span><span>Waiyaki Way, Westlands<br/>Nairobi, Kenya</span></li>
-            <li><span class="icon">🕐</span><span>Monday – Sunday<br/>6:00 AM – 10:00 PM</span></li>
+            <li><span class="icon">🕐</span><span>Mon – Sun: 6:00 AM – 10:00 PM</span></li>
           </ul>
         </div>
 
@@ -55,7 +112,7 @@
           <h3>📞 Call or Message</h3>
           <ul class="contact-list">
             <li><span class="icon">📞</span><a href="tel:+254700000000">+254 700 000 000</a></li>
-            <li><span class="icon">💬</span><a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp — instant booking</a></li>
+            <li><span class="icon">💬</span><a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp — instant booking ↗</a></li>
             <li><span class="icon">✉️</span><a href="mailto:hello@driveeasy.co.ke">hello@driveeasy.co.ke</a></li>
           </ul>
         </div>
@@ -66,14 +123,12 @@
             <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer"
                class="btn btn-red" style="text-align:center;">💬 Book via WhatsApp ↗</a>
             <a href="services.html" class="btn btn-outline" style="text-align:center;">🚘 Browse Our Fleet</a>
-            <a href="tel:+254700000000" class="btn btn-outline" style="text-align:center;">📞 Call Us Now</a>
           </div>
         </div>
-
       </div>
 
-      <!-- RIGHT: ENQUIRY FORM -->
-      <div class="card contact-form-card">
+      <!-- RIGHT: FORM -->
+      <div class="card">
         <h3>📋 Send an Enquiry</h3>
         <p style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">
           Fill in your details and we'll respond within the hour.
@@ -105,12 +160,12 @@
           <div class="form-group">
             <label for="vehicle">Vehicle of Interest</label>
             <select id="vehicle">
-              <option value="" disabled selected>— Select a vehicle category —</option>
+              <option value="" disabled selected>— Select a vehicle —</option>
               <option value="Economy (Toyota Vitz, Honda Fit)">Economy (Toyota Vitz, Honda Fit)</option>
               <option value="SUV (Mazda CX-5, Toyota RAV4)">SUV (Mazda CX-5, Toyota RAV4)</option>
-              <option value="Luxury Sedan (Mercedes C-Class, BMW 3)">Luxury Sedan (Mercedes C-Class, BMW 3)</option>
-              <option value="4x4 Off-Road (Land Cruiser, Pajero)">4×4 Off-Road (Land Cruiser, Pajero)</option>
-              <option value="Safari / Pop-Up Roof Vehicle">Safari / Pop-Up Roof Vehicle</option>
+              <option value="Luxury Sedan (Mercedes C-Class, BMW 3)">Luxury Sedan (Mercedes, BMW)</option>
+              <option value="4x4 Off-Road (Land Cruiser, Pajero)">4×4 Off-Road (Land Cruiser)</option>
+              <option value="Safari / Pop-Up Roof Vehicle">Safari / Pop-Up Roof</option>
               <option value="Minivan / Group Transport">Minivan / Group Transport</option>
               <option value="Other / Not Sure Yet">Other / Not Sure Yet</option>
             </select>
@@ -144,7 +199,6 @@
             <textarea id="message" placeholder="Any special requirements or questions..."></textarea>
           </div>
 
-          <!-- RADIO: Purpose -->
           <div class="form-group">
             <label style="margin-bottom:.8rem;">Purpose of Rental</label>
             <div class="radio-group">
@@ -155,7 +209,6 @@
             </div>
           </div>
 
-          <!-- CHECKBOXES: How did you hear -->
           <div class="form-group">
             <label style="margin-bottom:.8rem;">How Did You Hear About Us?</label>
             <div class="checkbox-group">
@@ -166,7 +219,7 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-red"
+          <button type="submit" id="submitBtn" class="btn btn-red"
                   style="width:100%;margin-top:.5rem;font-size:1.05rem;padding:1rem;">
             Send Enquiry →
           </button>
@@ -177,7 +230,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════ MAP ══════════════════ -->
+  <!-- MAP -->
   <section>
     <h2 class="section-title">Find Our Showroom</h2>
     <p style="color:var(--muted);margin-bottom:1.2rem;">
@@ -193,18 +246,9 @@
     </div>
   </section>
 
-  <!-- ══════════════════ CTA ══════════════════ -->
-  <section style="text-align:center;padding:2rem 0 1rem;">
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;margin-bottom:1rem;letter-spacing:.06em;">Ready to Hit the Road?</h2>
-    <p style="color:var(--muted);margin-bottom:1.8rem;">Skip the form — message us directly on WhatsApp for the fastest response.</p>
-    <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer"
-       class="btn btn-red" style="margin-right:1rem;">Book via WhatsApp ↗</a>
-    <a href="services.html" class="btn btn-outline">Browse Fleet</a>
-  </section>
-
 </main>
 
-<!-- ══════════════════ FOOTER ══════════════════ -->
+<!-- FOOTER -->
 <footer>
   <p>© 2026 <span>DriveEasy Car Rentals</span> — Waiyaki Way, Westlands, Nairobi, Kenya</p>
   <div class="footer-links">
@@ -214,74 +258,91 @@
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
     <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-    <a href="admin.html" style="opacity:.4;font-size:.75rem;">🔐 Admin</a>
   </div>
 </footer>
 
-<!-- ══════════════════ SUPABASE INTEGRATION SCRIPT ══════════════════ -->
+<!-- ══════════════════ SUPABASE (loaded ONCE, at bottom) ══════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // 1. Initialize Supabase (Clean URL without /rest/v1/)
+  // ── 1. Init Supabase ─────────────────────────────────────────
+  // FIX: URL must NOT end with /rest/v1/
   const { createClient } = supabase;
-  const supabaseUrl = 'https://jrkleiprsjblmaqljzki.supabase.co'; 
-  const supabaseAnonKey = 'sb_publishable_QFRDKZRJ1a0OjoKRyivnNA_UDmuzcI1'; 
-  const _supabase = createClient(supabaseUrl, supabaseAnonKey);
+  const db = createClient(
+    'https://jrkleiprsjblmaqljzki.supabase.co',
+    'sb_publishable_QFRDKZRJ1a0OjoKRyivnNA_UDmuzcI1'
+  );
 
-  // 2. Target your form
-  const contactForm = document.querySelector('#enquiryForm');
+  // ── 2. Form submit ───────────────────────────────────────────
+  document.getElementById('enquiryForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault(); // Stop page reload
+    const btn       = document.getElementById('submitBtn');
+    const statusBox = document.getElementById('statusBox');
 
-      // 3. Grab values using matching IDs
-      const first_name = document.querySelector('#first_name').value;
-      const last_name = document.querySelector('#last_name').value;
-      const email = document.querySelector('#email').value;
-      const phone = document.querySelector('#phone').value;
-      const vehicle = document.querySelector('#vehicle').value;
-      const pickup_date = document.querySelector('#pickup_date').value;
-      const return_date = document.querySelector('#return_date').value;
-      const pickup_location = document.querySelector('#pickup_location').value;
-      const message = document.querySelector('#message').value;
+    // Hide old status
+    statusBox.style.display = 'none';
+    statusBox.className     = 'alert';
 
-      // Grab selected radio button (Purpose)
-      const selectedPurpose = document.querySelector('input[name="purpose"]:checked');
-      const purpose = selectedPurpose ? selectedPurpose.value : '';
+    // FIX: IDs match the HTML exactly (underscores, not hyphens)
+    const first_name      = document.getElementById('first_name').value.trim();
+    const last_name       = document.getElementById('last_name').value.trim();
+    const email           = document.getElementById('email').value.trim();
+    const phone           = document.getElementById('phone').value.trim();
+    const vehicle         = document.getElementById('vehicle').value;
+    const pickup_date     = document.getElementById('pickup_date').value;
+    const return_date     = document.getElementById('return_date').value;
+    const pickup_location = document.getElementById('pickup_location').value;
+    const message         = document.getElementById('message').value.trim();
 
-      // Grab checked checkboxes (Sources)
-      const selectedSources = Array.from(document.querySelectorAll('input[name="source"]:checked'))
-                                   .map(cb => cb.value)
-                                   .join(', ');
+    const purposeEl = document.querySelector('input[name="purpose"]:checked');
+    const purpose   = purposeEl ? purposeEl.value : '';
 
-      try {
-        // 4. Send data to Supabase table 'bookings'
-        const { data, error } = await _supabase
-          .from('bookings')
-          .insert([{ 
-            first_name, 
-            last_name, 
-            email, 
-            phone, 
-            vehicle, 
-            pickup_date, 
-            return_date, 
-            pickup_location, 
-            message, 
-            purpose, 
-            source: selectedSources 
-          }]);
+    const source = Array.from(document.querySelectorAll('input[name="source"]:checked'))
+                        .map(cb => cb.value).join(', ');
 
-        if (error) throw error;
+    // Basic validation
+    if (!first_name || !last_name || !email) {
+      statusBox.textContent  = '⚠️ Please fill in First Name, Last Name, and Email.';
+      statusBox.classList.add('error');
+      statusBox.style.display = 'block';
+      statusBox.scrollIntoView({ behavior:'smooth', block:'center' });
+      return;
+    }
 
-        alert('Enquiry submitted successfully! We will get back to you soon.');
-        contactForm.reset(); // Clear fields
+    // Loading state
+    btn.disabled    = true;
+    btn.innerHTML   = '<span class="spinner"></span>Sending...';
 
-      } catch (error) {
-        console.error('Error submitting form:', error.message);
-        alert('Error saving your enquiry: ' + error.message);
-      }
-    });
-  }
+    // ── 3. Insert into Supabase ──────────────────────────────
+    const { error } = await db.from('bookings').insert([{
+      first_name,
+      last_name,
+      email,
+      phone,
+      vehicle,
+      pickup_date     : pickup_date     || null,
+      return_date     : return_date     || null,
+      pickup_location,
+      message,
+      purpose,
+      source
+    }]);
+
+    if (error) {
+      console.error('Supabase error:', error);
+      statusBox.textContent  = '❌ Error: ' + error.message + ' — Please try again or WhatsApp us.';
+      statusBox.classList.add('error');
+    } else {
+      statusBox.textContent  = '✅ Enquiry sent! We\'ll reply within the hour.';
+      statusBox.classList.add('success');
+      document.getElementById('enquiryForm').reset();
+    }
+
+    statusBox.style.display = 'block';
+    statusBox.scrollIntoView({ behavior:'smooth', block:'center' });
+    btn.disabled  = false;
+    btn.innerHTML = 'Send Enquiry →';
+  });
 </script>
 
 </body>
