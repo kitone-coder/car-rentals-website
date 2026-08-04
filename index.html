@@ -9,6 +9,37 @@
 </head>
 <body>
 
+<!-- ═══════════════════════════════ WELCOME POPUP ═══════════════════════════════ -->
+<div id="welcome-popup" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;">
+  <div style="
+    background: #fff;
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);">
+    <h2 style="margin:0 0 0.75rem;font-size:1.6rem;color:#c0392b;">Welcome to DriveEasy! 🚗</h2>
+    <p style="margin:0;color:#444;font-size:1rem;line-height:1.6;">
+      Nairobi's #1 Premium Car Rental Service.<br>
+      Explore our fleet and hit the road today!
+    </p>
+  </div>
+</div>
+<script>
+  setTimeout(function () {
+    var popup = document.getElementById('welcome-popup');
+    if (popup) popup.style.display = 'none';
+  }, 5000);
+</script>
+
 <!-- ═══════════════════════════════ NAVIGATION ═══════════════════════════════ -->
 <nav>
   <a href="index.html" class="nav-logo">Drive<span>Easy</span></a>
